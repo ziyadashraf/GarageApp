@@ -1,0 +1,14 @@
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/bin/Debug/net8.0/GarageApp
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/bin/Debug/net8.0/GarageApp.deps.json
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/bin/Debug/net8.0/GarageApp.runtimeconfig.json
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/bin/Debug/net8.0/GarageApp.dll
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/bin/Debug/net8.0/GarageApp.pdb
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.AssemblyInfoInputs.cache
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.AssemblyInfo.cs
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.csproj.CoreCompileInputs.cache
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.dll
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/refint/GarageApp.dll
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.pdb
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.genruntimeconfig.cache
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/ref/GarageApp.dll
