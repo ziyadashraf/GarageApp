@@ -1,21 +1,49 @@
 namespace GarageApp
 {
 
+
     abstract class CheckSlot
     {
-
-
         public static void Check(Vehicle vehicle, Garage garage)
         {
-            List<ParkingSlot> slots = garage.GetAllSlots(); 
-            ParkIn.OccupySlot(slots[1], vehicle);
+            List<ParkingSlot> slots = garage.GetAllSlots();
+            ParkingSlot bestFitSlot = FindBestFitSlot(vehicle, slots);
+
+            if (bestFitSlot != null)
+            {
+                ParkIn.OccupySlot(bestFitSlot, vehicle);
+                Console.WriteLine("Vehicle parked successfully.");
+            }
+            else
+            {
+                Console.WriteLine("No suitable parking slot available.");
+            }
+        }
+
+        private static ParkingSlot FindBestFitSlot(Vehicle vehicle, List<ParkingSlot> slots)
+        {
+            ParkingSlot bestFitSlot = null;
+
+            foreach (ParkingSlot slot in slots)
+            {
+
+                if (slot.width >= vehicle.Width && slot.depth >= vehicle.Depth)
+                {
+                    if (bestFitSlot == null ||
+                        (slot.width * slot.depth) < (bestFitSlot.width * bestFitSlot.depth) && bestFitSlot.vehicle == null)
+                    {
+                        bestFitSlot = slot;
+                    }
+                }
+            }
+
+            return bestFitSlot;
         }
 
     }
 
     abstract class ParkIn
     {
-
         public static int vehicleNo = 0;
         public static void OccupySlot(ParkingSlot parkingSlot, Vehicle vehicle)
         {
@@ -34,30 +62,24 @@ namespace GarageApp
 
     class Vehicle
     {
-        public int ID { get; set; }
+        public static int ID = 0;
         public string? ModelName { get; set; }
         public int ModelYear { get; set; }
         public decimal Width { get; set; }
         public decimal Depth { get; set; }
         public DateTime ArrivalTime { get; set; }
-        public DateTime DepartureTime { get; set; }
+        public DateTime? DepartureTime { get; set; }
 
-        public Vehicle(decimal width, decimal depth)
+        public Vehicle(string? modelName, int modelYear, decimal width, decimal depth, DateTime arrivalTime)
         {
+            ID++;
+            ModelName = modelName;
+            ModelYear = modelYear;
             Width = width;
             Depth = depth;
+            ArrivalTime = arrivalTime;
+            // DepartureTime = departureTime;
         }
-
-        // public Vehicle(int id, string? modelName, int modelYear, decimal width, decimal depth, DateTime arrivalTime, DateTime departureTime)
-        // {
-        //     ID = id;
-        //     ModelName = modelName;
-        //     ModelYear = modelYear;
-        //     Width = width;
-        //     Depth = depth;
-        //     ArrivalTime = arrivalTime;
-        //     DepartureTime = departureTime;
-        // }
     }
 
     class ParkingSlot
@@ -93,7 +115,6 @@ namespace GarageApp
         {
             return parkingSlots;
         }
-
 
         public void AddSlot(ParkingSlot parkingSlot)
         {

@@ -12,3 +12,4 @@
 /Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.pdb
 /Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.genruntimeconfig.cache
 /Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/ref/GarageApp.dll
+/Users/ziyadashraf/Documents/OOP C#/GarageApp/obj/Debug/net8.0/GarageApp.sourcelink.json
