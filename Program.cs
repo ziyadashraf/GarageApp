@@ -29,16 +29,77 @@ while (true)
     Console.WriteLine("1. Add Car to Garage");
     Console.WriteLine("2. Remove Car from Garage");
     Console.WriteLine("3. Display All Slots");
-
-    int decision = int.Parse(Console.ReadLine());
-
+    int decision;
+    while (true)
+    {
+        try
+        {
+            decision = int.Parse(Console.ReadLine());
+            break;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
     if (decision == 1)
     {
-        decimal depth = decimal.Parse(Console.ReadLine());
-        decimal width = decimal.Parse(Console.ReadLine());
-        int ModelYear = int.Parse(Console.ReadLine());
-        string ModelName = Console.ReadLine();
 
+        decimal depth;
+        decimal width;
+        int ModelYear;
+        string ModelName;
+
+        while (true)
+        {
+            try
+            {
+                depth = decimal.Parse(Console.ReadLine());
+                break;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        while (true)
+        {
+            try
+            {
+                width = decimal.Parse(Console.ReadLine());
+                break;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        while (true)
+        {
+            try
+            {
+                ModelYear = int.Parse(Console.ReadLine());
+                break;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        while (true)
+        {
+            try
+            {
+                ModelName = Console.ReadLine();
+                break;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
         Vehicle vehicle = new Vehicle(ModelName, ModelYear, width, depth, DateTime.Now);
         CheckSlot.Check(vehicle, garage);
     }

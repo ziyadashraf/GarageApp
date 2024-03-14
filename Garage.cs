@@ -27,10 +27,10 @@ namespace GarageApp
             foreach (ParkingSlot slot in slots)
             {
 
-                if (slot.width >= vehicle.Width && slot.depth >= vehicle.Depth)
+                if (slot.width >= vehicle.Width && slot.depth >= vehicle.Depth && slot.vehicle == null)
                 {
                     if (bestFitSlot == null ||
-                        (slot.width * slot.depth) < (bestFitSlot.width * bestFitSlot.depth) && bestFitSlot.vehicle == null)
+                        (slot.width * slot.depth) < (bestFitSlot.width * bestFitSlot.depth))
                     {
                         bestFitSlot = slot;
                     }
