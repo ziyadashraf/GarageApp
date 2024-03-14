@@ -144,31 +144,15 @@ while (true)
 
     if (decision == 4)
     {
-        Calculate.DisplayIncome();
+        IncomeCalculator.DisplayIncome();
     }
 
     if (decision == 5)
     {
-        Calculate.VehicleNumber();
+        VehicleCounter.DisplayVehicleCount();
     }
 
 
-
-    // Console.WriteLine("3. Add Car to Garage");
-    // Console.WriteLine("1. Add Car to Garage");
-
-
-
-    // CheckSlot.Check(vehicle, garage);
-    // garage.AddVehicle(new Vehicle(20, 30, DateTime.Now));
-
-
-    // foreach (ParkingSlot slot in slots)
-    // {
-
-    //     Console.WriteLine(slot.vehicle.ID);
-
-    // }
 
 }
 

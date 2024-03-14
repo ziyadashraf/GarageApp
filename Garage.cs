@@ -1,15 +1,28 @@
 namespace GarageApp
 {
 
-    abstract class Calculate
+    // Class responsible for managing and incrementing vehicle counts
+    abstract public class VehicleCounter
     {
-        public static int vehicleNo = 0;
-        public static double totalIncome = 0;
+        private static int vehicleNo = 0;
+
         public static void IncrementVehicles()
         {
             vehicleNo++;
         }
-        public static void TotalIncome(Vehicle vehicle)
+
+        public static void DisplayVehicleCount()
+        {
+            Console.WriteLine(vehicleNo);
+        }
+    }
+
+    // Class responsible for calculating and storing total income
+    abstract public class IncomeCalculator
+    {
+        private static double totalIncome = 0;
+
+        public static void CalculateIncome(Vehicle vehicle)
         {
             TimeSpan duration = (TimeSpan)(vehicle.DepartureTime - vehicle.ArrivalTime);
             double totalHours = Math.Ceiling(duration.TotalHours);
@@ -20,13 +33,8 @@ namespace GarageApp
         {
             Console.WriteLine(totalIncome);
         }
-
-        public static void VehicleNumber()
-        {
-            Console.WriteLine(vehicleNo);
-        }
-
     }
+
     abstract class CheckSlot
     {
         public static void Check(Vehicle vehicle, Garage garage)
@@ -72,7 +80,7 @@ namespace GarageApp
         public static void OccupySlot(ParkingSlot parkingSlot, Vehicle vehicle)
         {
             parkingSlot.vehicle = vehicle;
-            Calculate.IncrementVehicles();
+            VehicleCounter.IncrementVehicles();
         }
     }
 
@@ -81,12 +89,12 @@ namespace GarageApp
         public static void UnOccupySlot(ParkingSlot parkingSlot)
         {
             parkingSlot.vehicle.DepartureTime = DateTime.Now;
-            Calculate.TotalIncome(parkingSlot.vehicle);
+            IncomeCalculator.CalculateIncome(parkingSlot.vehicle);
             parkingSlot.vehicle = null;
         }
     }
 
-    class Vehicle
+    public class Vehicle
     {
         public static int ID = 0;
         public string? ModelName { get; set; }
@@ -107,7 +115,7 @@ namespace GarageApp
         }
     }
 
-    class ParkingSlot
+    public class ParkingSlot
     {
         public decimal width;
         public decimal depth;
@@ -123,7 +131,7 @@ namespace GarageApp
 
     }
 
-    class Garage
+    public class Garage
     {
 
         private List<ParkingSlot> parkingSlots;
@@ -150,7 +158,6 @@ namespace GarageApp
         {
             vehicles.Add(vehicle);
         }
-
 
 
     }
