@@ -29,6 +29,8 @@ while (true)
     Console.WriteLine("1. Add Car to Garage");
     Console.WriteLine("2. Remove Car from Garage");
     Console.WriteLine("3. Display All Slots");
+    Console.WriteLine("4. Calculate Total Income");
+    Console.WriteLine("5. Calculate Total Cars Parked");
     int decision;
     while (true)
     {
@@ -124,7 +126,6 @@ while (true)
 
     if (decision == 3)
     {
-
         Console.WriteLine($"All slots:");
 
         for (int i = 0; i < slots.Count; i++)
@@ -139,9 +140,16 @@ while (true)
 
             }
         }
+    }
 
+    if (decision == 4)
+    {
+        Calculate.DisplayIncome();
+    }
 
-
+    if (decision == 5)
+    {
+        Calculate.VehicleNumber();
     }
 
 

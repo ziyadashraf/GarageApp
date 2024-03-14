@@ -1,7 +1,32 @@
 namespace GarageApp
 {
 
+    abstract class Calculate
+    {
+        public static int vehicleNo = 0;
+        public static double totalIncome = 0;
+        public static void IncrementVehicles()
+        {
+            vehicleNo++;
+        }
+        public static void TotalIncome(Vehicle vehicle)
+        {
+            TimeSpan duration = (TimeSpan)(vehicle.DepartureTime - vehicle.ArrivalTime);
+            double totalHours = Math.Ceiling(duration.TotalHours);
+            totalIncome += totalHours * 5;
+        }
 
+        public static void DisplayIncome()
+        {
+            Console.WriteLine(totalIncome);
+        }
+
+        public static void VehicleNumber()
+        {
+            Console.WriteLine(vehicleNo);
+        }
+
+    }
     abstract class CheckSlot
     {
         public static void Check(Vehicle vehicle, Garage garage)
@@ -44,11 +69,10 @@ namespace GarageApp
 
     abstract class ParkIn
     {
-        public static int vehicleNo = 0;
         public static void OccupySlot(ParkingSlot parkingSlot, Vehicle vehicle)
         {
             parkingSlot.vehicle = vehicle;
-            vehicleNo++;
+            Calculate.IncrementVehicles();
         }
     }
 
@@ -56,6 +80,8 @@ namespace GarageApp
     {
         public static void UnOccupySlot(ParkingSlot parkingSlot)
         {
+            parkingSlot.vehicle.DepartureTime = DateTime.Now;
+            Calculate.TotalIncome(parkingSlot.vehicle);
             parkingSlot.vehicle = null;
         }
     }
@@ -69,7 +95,6 @@ namespace GarageApp
         public decimal Depth { get; set; }
         public DateTime ArrivalTime { get; set; }
         public DateTime? DepartureTime { get; set; }
-
         public Vehicle(string? modelName, int modelYear, decimal width, decimal depth, DateTime arrivalTime)
         {
             ID++;
